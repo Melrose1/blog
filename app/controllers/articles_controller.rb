@@ -7,20 +7,18 @@ class ArticlesController < ApplicationController
     def show
     end
     def edit
-        puts "\n\n\n #{@article.id} \n\n\n"
-        puts "\n\n\n #{@article.persisted?} \n\n\n"
+       # puts "\n\n\n #{@article.id} \n\n\n"
+       # puts "\n\n\n #{@article.persisted?} \n\n\n" 
     end
     def new
         @article = Article.new
     end
     def create
-        @article = current_user.articles.create(title: params[:article][:title], 
-        content: params[:article][:content]) 
+        @article = current_user.articles.create(article_params) 
         redirect_to @article
     end
     def update
-        @article.update(title: params[:article][:title], 
-        content: params[:article][:content])
+        @article.update(article_params)
         redirect_to @article
     end
     def destroy
@@ -33,5 +31,8 @@ class ArticlesController < ApplicationController
     end
     def from_author
         @user = User.find(params[:user_id])
+    end
+    def article_params
+        params.require(:article).permit(:title, :content)
     end
 end
