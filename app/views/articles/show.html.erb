@@ -2,6 +2,7 @@
     <h1><%= @article.title %></h1>
     <div>
         <p>Escrito por: <strong><%= @article.user.email %></strong></p>
+         <%= image_tag url_for(current_user.avatar), height:30 %>
     </div>
     <div>
         <%= @article.content %>
