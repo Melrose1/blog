@@ -1,9 +1,7 @@
+<div class="large-container center-block">
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @category.title %>
-</p>
+  <h1>Artículos publicados por <%= @category.title %></h1>
 
 <p>
   <strong>Color:</strong>
@@ -12,3 +10,5 @@
 
 <%= link_to 'Edit', edit_category_path(@category) %> |
 <%= link_to 'Back', categories_path %>
+
+</div>
