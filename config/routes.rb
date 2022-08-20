@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   resources :categories
   devise_for :users
+  resources :users, only: [:update]
   #get 'home/index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   get "bienvenida", to: "home#index"
+  get "perfil", to:"users#edit"
    root to: "home#index"
 
   resources :articles do
